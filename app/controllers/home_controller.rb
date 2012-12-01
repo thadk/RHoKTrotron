@@ -36,10 +36,17 @@ class HomeController < ApplicationController
         event = Event.where(status: 'ACTIVE', code: event_code).first
 
         event.add_attendee(from_number) if event.present?
-
+        PhoneNumber.send_sms_message_to_number("You have been added. Thank you.", from_number)
       end
       # Add attendee to event
     else
+      event = Event.where(owner: from_number, status: 'ACTIVE')
+      if event.present?
+        event.attendees.each do |attendee|
+          PhoneNumber.send_sms_message_to_number("Notification: #{original_message}", attendee.phone_number)
+        end
+        PhoneNumber.send_sms_message_to_number("Notifications sent", from_number)
+      end
       # if num is from an event organizer with active event, forward message to everyone on event
     end
 
