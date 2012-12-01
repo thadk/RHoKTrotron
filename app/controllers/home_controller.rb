@@ -12,6 +12,10 @@ class HomeController < ApplicationController
   end
 
   def sms
+    message_body = params["Body"]
+    from_number = params["From"]
+    phone_number.send_sms_message_to_number("Hello Tron World!", from_number)
 
+    render :text => "Done"
   end
 end
