@@ -37,19 +37,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="home_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="4" selection-start="407" selection-end="407" vertical-scroll-proportion="0.63829786">
+            <state line="16" column="13" selection-start="337" selection-end="337" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="phone_number.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="phone_number.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/phone_number.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="62" selection-start="93" selection-end="144" vertical-scroll-proportion="0.0">
+            <state line="0" column="6" selection-start="6" selection-end="6" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -886,16 +886,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/phone_number.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="62" selection-start="93" selection-end="144" vertical-scroll-proportion="0.0">
+        <state line="16" column="13" selection-start="337" selection-end="337" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/phone_number.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="4" selection-start="407" selection-end="407" vertical-scroll-proportion="0.63829786">
+        <state line="0" column="6" selection-start="6" selection-end="6" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
