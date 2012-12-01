@@ -28,14 +28,13 @@ class HomeController < ApplicationController
 
       PhoneNumber.send_sms_message_to_number(event.code, from_number)
 
-    else if join_event_keywords.include? keyword
+    elsif join_event_keywords.include? keyword
       # Add attendee to event
     else
       # if num is from an event organizer with active event, forward message to everyone on event
     end
 
-
-
     render :text => "Done"
+
   end
 end
