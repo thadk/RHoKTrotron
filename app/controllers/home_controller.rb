@@ -18,6 +18,7 @@ class HomeController < ApplicationController
     new_event_keywords = ["N", "NE", "NEW", "", "START", "+"] #TODO: Make this customizable via config file later
     end_event_keywords = ["CLOSE", "END", "DONE", "X", "C"]
     join_event_keywords = ["J", "JOIN"]
+    stop_keywords = ["STOP", "OPT-OUT"]
 
     original_message = message_body.strip
     tokenized_message = original_message.split
@@ -31,10 +32,18 @@ class HomeController < ApplicationController
 
       PhoneNumber.send_sms_message_to_number("Your Code is: #{event.code}", from_number)
 
+    elsif stop_keywords.include? keyword
+      #Lazy way to do it, opt attendee out of everything
+      Attendee.where(phone_number: from_number, status: 'ACTIVE').each do |a|
+        a.status = 'INACTIVE';
+        a.save
+      end
+      PhoneNumber.send_sms_message_to_number("Notifications turned off. Thank you.", from_number)
+
     elsif join_event_keywords.include?
       if tokenized_message.size > 1
         event_code = tokenized_message[1]
-        event = Event.where(status: 'ACTIVE', code: event_code).first
+        event = Event.where(status: 'ACTIVE', code: event_code).first   #TODO: should also take expiry into consideration
 
         if event.present?
           event.add_attendee(from_number)
