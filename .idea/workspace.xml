@@ -28,10 +28,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home_controller.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="home_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="62" selection-start="1436" selection-end="1448" vertical-scroll-proportion="0.0">
+            <state line="42" column="69" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.46067417">
               <folding />
             </state>
           </provider>
@@ -55,10 +55,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="12" selection-start="42" selection-end="42" vertical-scroll-proportion="0.035799522">
+            <state line="1" column="12" selection-start="42" selection-end="42" vertical-scroll-proportion="-0.5769231">
               <folding />
             </state>
           </provider>
@@ -108,8 +108,8 @@
         <option value="$PROJECT_DIR$/db/migrate/20121201222215_add_status_to_attendee.rb" />
         <option value="$PROJECT_DIR$/app/models/attendee.rb" />
         <option value="$PROJECT_DIR$/app/models/event.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
       </list>
     </option>
   </component>
@@ -953,9 +953,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
+    <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="62" selection-start="1436" selection-end="1448" vertical-scroll-proportion="0.0">
+        <state line="1" column="12" selection-start="42" selection-end="42" vertical-scroll-proportion="-0.5769231">
           <folding />
         </state>
       </provider>
@@ -967,9 +967,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
+    <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="12" selection-start="42" selection-end="42" vertical-scroll-proportion="0.035799522">
+        <state line="42" column="69" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.46067417">
           <folding />
         </state>
       </provider>

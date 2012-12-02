@@ -40,7 +40,7 @@ class HomeController < ApplicationController
       end
       # Add attendee to event
     else
-      event = Event.where(owner: from_number, status: 'ACTIVE')
+      event = Event.where(owner: from_number, status: 'ACTIVE').first
       if event.present?
         event.attendees.each do |attendee|
           PhoneNumber.send_sms_message_to_number("Notification: #{original_message}", attendee.phone_number)
