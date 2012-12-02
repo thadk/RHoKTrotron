@@ -54,6 +54,7 @@ class HomeController < ApplicationController
       if event.present?
         if end_event_keywords.include? keyword
           event.status = 'INACTIVE'
+          event.attendees.each{|a| a.status = 'INACTIVE'; a.save}
           event.save
           PhoneNumber.send_sms_message_to_number("Close successful. Thank you.", from_number)
         else
