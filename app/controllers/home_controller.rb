@@ -24,6 +24,8 @@ class HomeController < ApplicationController
     tokenized_message = original_message.split
     keyword = (message_body.strip.upcase)[0]
 
+    puts "HERE: #{stop_keywords.inspect} -- #{keyword}"
+
     if new_event_keywords.include? keyword
       event = Event.new
       event.owner = from_number
@@ -59,7 +61,7 @@ class HomeController < ApplicationController
           PhoneNumber.send_sms_message_to_number("Close successful. Thank you.", from_number)
         else
           event.attendees.each do |attendee|
-            PhoneNumber.send_sms_message_to_number("Notification (Reply \"BYE\" to stop receiving): #{original_message}", attendee.phone_number)
+            PhoneNumber.send_sms_message_to_number("Notification: #{original_message} \n (Reply \"BYE\" to stop receiving)", attendee.phone_number)
           end
           PhoneNumber.send_sms_message_to_number("Notifications sent", from_number)
         end
