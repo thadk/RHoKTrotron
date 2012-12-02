@@ -22,7 +22,7 @@ class HomeController < ApplicationController
 
     original_message = message_body.strip
     tokenized_message = original_message.split
-    keyword = (message_body.strip.upcase)[0]
+    keyword = (message_body.strip.upcase).split[0]
 
     puts "HERE: #{stop_keywords.inspect} -- #{keyword}"
 
