@@ -16,16 +16,15 @@ class HomeController < ApplicationController
     from_number = params["From"]
 
     new_event_keywords = ["N", "NE", "NEW", "", "+"] #TODO: Make this customizable via config file later
-    end_event_keywords = ["CLOSE", "END", "DONE", "X", "C"]
+    end_event_keywords = ["CLOSE", "DONE", "X", "C"]
     join_event_keywords = ["J", "JOIN"]
-    stop_keywords = ["OPT-OUT"]
+    stop_keywords = ["BYE"]
 
     original_message = message_body.strip
     tokenized_message = original_message.split
     keyword = (message_body.strip.upcase)[0]
 
     if new_event_keywords.include? keyword && tokenized_message.count == 1
-      # Create a new event
       event = Event.new
       event.owner = from_number
       event.save
@@ -50,7 +49,6 @@ class HomeController < ApplicationController
           PhoneNumber.send_sms_message_to_number("You have been added. Thank you.", from_number)
         end
       end
-      # Add attendee to event
     else
       event = Event.where(owner: from_number, status: 'ACTIVE').first
       if event.present?
@@ -60,12 +58,11 @@ class HomeController < ApplicationController
           PhoneNumber.send_sms_message_to_number("Close successful. Thank you.", from_number)
         else
           event.attendees.each do |attendee|
-            PhoneNumber.send_sms_message_to_number("Notification (Reply \"STOP\" to stop receiving): #{original_message}", attendee.phone_number)
+            PhoneNumber.send_sms_message_to_number("Notification (Reply \"BYE\" to stop receiving): #{original_message}", attendee.phone_number)
           end
           PhoneNumber.send_sms_message_to_number("Notifications sent", from_number)
         end
       end
-      # if num is from an event organizer with active event, forward message to everyone on event
     end
 
     render :text => "Done"
