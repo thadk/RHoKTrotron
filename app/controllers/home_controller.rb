@@ -18,7 +18,7 @@ class HomeController < ApplicationController
     new_event_keywords = ["N", "NE", "NEW", "", "+"] #TODO: Make this customizable via config file later
     end_event_keywords = ["CLOSE", "DONE", "X", "C"]
     join_event_keywords = ["J", "JOIN"]
-    stop_keywords = ["BYE"]
+    stop_keywords = ["BYE", "XX"]
 
     original_message = message_body.strip
     tokenized_message = original_message.split
