@@ -53,6 +53,7 @@ class HomeController < ApplicationController
       end
     else
       event = Event.where(owner: from_number, status: 'ACTIVE').first
+      puts "Did it get here? 0"
       if event.present?
         if end_event_keywords.include? keyword
           event.status = 'INACTIVE'
@@ -60,6 +61,7 @@ class HomeController < ApplicationController
           event.save
           PhoneNumber.send_sms_message_to_number("Close successful. Thank you.", from_number)
         else
+          puts "Did it get here? 1"
           event.attendees.select{|attendee| attendee.status == 'ACTIVE' }.each do |attendee|
             PhoneNumber.send_sms_message_to_number("Notification: #{original_message} \n (Reply \"BYE\" to stop receiving)", attendee.phone_number)
           end
