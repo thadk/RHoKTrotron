@@ -24,7 +24,7 @@ class HomeController < ApplicationController
     tokenized_message = original_message.split
     keyword = (message_body.strip.upcase)[0]
 
-    if new_event_keywords.include? keyword && tokenized_message.count == 1
+    if new_event_keywords.include? keyword
       event = Event.new
       event.owner = from_number
       event.save
@@ -52,7 +52,7 @@ class HomeController < ApplicationController
     else
       event = Event.where(owner: from_number, status: 'ACTIVE').first
       if event.present?
-        if end_event_keywords.include? keyword && tokenized_message.count == 1
+        if end_event_keywords.include? keyword
           event.status = 'INACTIVE'
           event.save
           PhoneNumber.send_sms_message_to_number("Close successful. Thank you.", from_number)
