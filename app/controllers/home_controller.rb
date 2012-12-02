@@ -60,7 +60,7 @@ class HomeController < ApplicationController
           PhoneNumber.send_sms_message_to_number("Close successful. Thank you.", from_number)
         else
           event.attendees.each do |attendee|
-            PhoneNumber.send_sms_message_to_number("Notification: #{original_message}", attendee.phone_number)
+            PhoneNumber.send_sms_message_to_number("Notification (Reply \"STOP\" to stop receiving): #{original_message}", attendee.phone_number)
           end
           PhoneNumber.send_sms_message_to_number("Notifications sent", from_number)
         end
