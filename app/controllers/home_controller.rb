@@ -61,6 +61,7 @@ class HomeController < ApplicationController
           PhoneNumber.send_sms_message_to_number("Close successful. Thank you.", from_number)
         else
           puts "Did it get here? 1"
+          puts "#{event}"
           puts "#{event.attendees.inspect}"
           event.attendees.select{|attendee| attendee.status == 'ACTIVE' }.each do |attendee|
             puts "Did it get here? 3"
