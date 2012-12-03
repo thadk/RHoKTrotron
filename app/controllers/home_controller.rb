@@ -24,8 +24,8 @@ class HomeController < ApplicationController
     tokenized_message = original_message.split
     keyword = (message_body.strip.upcase).split[0]
 
-    puts "HERE: #{stop_keywords.inspect} -- #{keyword}"
-
+    puts "Received keyword-- #{keyword}"
+    #TODO: Do not allow multiple active events from same creator
     if new_event_keywords.include? keyword
       event = Event.new
       event.owner = from_number
@@ -60,11 +60,7 @@ class HomeController < ApplicationController
           event.save
           PhoneNumber.send_sms_message_to_number("Close successful. Thank you.", from_number)
         else
-          puts "Did it get here? 1"
-          puts "#{event.inspect}"
-          puts "#{event.attendees.inspect}"
           event.attendees.select{|attendee| attendee.status == 'ACTIVE' }.each do |attendee|
-            puts "Did it get here? 3"
             PhoneNumber.send_sms_message_to_number("Notification: #{original_message} \n (Reply \"BYE\" to stop receiving)", attendee.phone_number)
           end
           PhoneNumber.send_sms_message_to_number("Notifications sent", from_number)
